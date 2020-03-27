@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+
+    <fieldset>
+        <legend>Informações</legend>
+          <div class="editor-label">
+          Dados:  <input type="text" id="texto">
+      </div>
+      
+        <p>
+            <input id="Button1" type="button" value="Gravar" onclick="javascript:EnviaDados(document.getElementById('texto').value);" />
+        </p>
+    </fieldset>
+
+<script>
+    function EnviaDados(descricao){
+        var parametros = {
+                descricao: descricao
+            };
+
+        $.ajax({
+            url: '@Url.Content("~/Home/Atualiza")',
+            data: parametros,
+            success: function (textStatus) {
+            }
+        }); 
+
+      
+    }
+</script>
